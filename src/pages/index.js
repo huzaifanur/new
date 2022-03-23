@@ -3,11 +3,11 @@ import Image from "next/image";
 
 //
 import { useState, useEffect } from "react";
-import { Grid } from "../components/grid/Grid";
-import { Keyboard } from "../components/keyboard/Keyboard";
-import { InfoModal } from "../components/modals/InfoModal";
-import { StatsModal } from "../components/modals/StatsModal";
-import { SettingsModal } from "../components/modals/SettingsModal";
+import { Grid } from "../wordle/components/grid/Grid";
+import { Keyboard } from "../wordle/components/keyboard/Keyboard";
+import { InfoModal } from "../wordle/components/modals/InfoModal";
+import { StatsModal } from "../wordle/components/modals/StatsModal";
+import { SettingsModal } from "../wordle/components/modals/SettingsModal";
 import {
   WIN_MESSAGES,
   GAME_COPIED_MESSAGE,
@@ -15,35 +15,34 @@ import {
   WORD_NOT_FOUND_MESSAGE,
   CORRECT_WORD_MESSAGE,
   HARD_MODE_ALERT_MESSAGE,
-} from "../constants/strings";
+} from "../wordle/constants/strings";
 import {
   MAX_WORD_LENGTH,
   MAX_CHALLENGES,
   REVEAL_TIME_MS,
   GAME_LOST_INFO_DELAY,
   WELCOME_INFO_MODAL_MS,
-} from "../constants/settings";
+} from "../wordle/constants/settings";
 import {
   isWordInWordList,
   isWinningWord,
   solution,
   findFirstUnusedReveal,
   unicodeLength,
-} from "../lib/words";
-import { addStatsForCompletedGame, loadStats } from "../lib/stats";
+} from "../wordle/lib/words";
+import { addStatsForCompletedGame, loadStats } from "../wordle/lib/stats";
 import {
   loadGameStateFromLocalStorage,
   saveGameStateToLocalStorage,
   setStoredIsHighContrastMode,
   getStoredIsHighContrastMode,
-} from "../lib/localStorage";
+} from "../wordle/lib/localStorage";
 import { default as GraphemeSplitter } from "grapheme-splitter";
 
-// import { AlertContainer } from '../components/alerts/AlertContainer'
-import { AlertContainer } from "../components/alerts/AlertContainer";
-import { useAlert } from "../context/AlertContext";
-import { Navbar } from "../components/navbar/Navbar";
-import Layout from "../components/layout";
+// import { AlertContainer } from '../wordle/components/alerts/AlertContainer'
+import { AlertContainer } from "../wordle/components/alerts/AlertContainer";
+import { useAlert } from "../wordle/context/AlertContext";
+
 //
 
 export default function Home() {
