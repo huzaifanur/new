@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 export default function Range() {
-  const [value, setValue] = useState(5);
+  const [value, setValue] = useState(5)
+  useEffect(() => {
+    localStorage.setItem('length', value)
+  }, [value])
 
   return (
     <div className="my-3 w-80 bg-slate-200 p-4 rounded-md font-bold">
@@ -20,5 +24,5 @@ export default function Range() {
         />
       </div>
     </div>
-  );
+  )
 }

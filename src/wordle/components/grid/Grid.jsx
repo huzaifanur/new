@@ -1,8 +1,9 @@
-import Range from "../../../components/range";
-import { MAX_CHALLENGES } from "../../constants/settings";
-import { CompletedRow } from "./CompletedRow";
-import { CurrentRow } from "./CurrentRow";
-import { EmptyRow } from "./EmptyRow";
+import Range from '../../../components/range'
+import { MAX_CHALLENGES } from '../../constants/settings'
+import { CompletedRow } from './CompletedRow'
+import { CurrentRow } from './CurrentRow'
+import { EmptyRow } from './EmptyRow'
+import { useState } from 'react'
 
 // type Props = {
 //   guesses: string[]
@@ -20,7 +21,7 @@ export const Grid = ({
   const empties =
     guesses.length < MAX_CHALLENGES - 1
       ? Array.from(Array(MAX_CHALLENGES - 1 - guesses.length))
-      : [];
+      : []
 
   return (
     <div className="flex flex-col items-center">
@@ -43,5 +44,5 @@ export const Grid = ({
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
