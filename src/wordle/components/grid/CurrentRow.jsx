@@ -1,15 +1,16 @@
-import { MAX_WORD_LENGTH } from '../../constants/settings'
 import { Cell } from './Cell'
 import { unicodeSplit } from '../../lib/words'
-
+import { useContext } from 'react'
+import { GameContext } from '../../../context/gameState'
 // type Props = {
 //   guess: string
 //   className: string
 // }
 
 export const CurrentRow = ({ guess, className }) => {
+  const { length, setLength } = useContext(GameContext)
   const splitGuess = unicodeSplit(guess)
-  const emptyCells = Array.from(Array(MAX_WORD_LENGTH - splitGuess.length))
+  const emptyCells = Array.from(Array(length - splitGuess.length))
   const classes = `flex justify-center mb-1 ${className}`
 
   return (

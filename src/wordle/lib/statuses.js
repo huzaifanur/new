@@ -2,9 +2,9 @@ import { solution, unicodeSplit } from './words'
 
 // export type CharStatus = 'absent' | 'present' | 'correct'
 
-export const getStatuses = (guesses) => {
+export const getStatuses = (guesses, sol) => {
   const charObj = {}
-  const splitSolution = unicodeSplit(solution)
+  const splitSolution = unicodeSplit(sol)
 
   guesses.forEach((word) => {
     unicodeSplit(word).forEach((letter, i) => {
@@ -28,8 +28,8 @@ export const getStatuses = (guesses) => {
   return charObj
 }
 
-export const getGuessStatuses = (guess) => {
-  const splitSolution = unicodeSplit(solution)
+export const getGuessStatuses = (guess, sol) => {
+  const splitSolution = unicodeSplit(sol)
   const splitGuess = unicodeSplit(guess)
 
   const solutionCharsTaken = splitSolution.map((_) => false)

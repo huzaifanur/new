@@ -1,12 +1,13 @@
-import { WORDS } from '../constants/wordlist'
-import { VALID_GUESSES } from '../constants/validGuesses'
+import VALID_GUESSES from '../constants/words/dic.json'
 import { WRONG_SPOT_MESSAGE, NOT_CONTAINED_MESSAGE } from '../constants/strings'
 import { getGuessStatuses } from './statuses'
 import { default as GraphemeSplitter } from 'grapheme-splitter'
+import getWordsList from '../constants/helper'
 
+let targetWords = []
 export const isWordInWordList = (word) => {
   return (
-    WORDS.includes(word.toLowerCase()) ||
+    targetWords.includes(word.toLowerCase()) ||
     VALID_GUESSES.includes(word.toLowerCase())
   )
 }
@@ -78,6 +79,12 @@ export const getWordOfDay = () => {
   // January 1, 2022 Game Epoch
   //Returns number of milliscs between  1 January 1970 00:00:00 UTC and the given date
   const epochMs = new Date(2022, 0).valueOf()
+  let wordLength = ''
+  if (typeof window !== 'undefined') {
+    wordLength = Number(localStorage.getItem('length'))
+  }
+  targetWords = getWordsList(wordLength)
+
   //The static Date.now() method returns the number of milliseconds elapsed since January 1, 1970
   const now = Date.now()
   const msInDay = 86400000
@@ -85,7 +92,7 @@ export const getWordOfDay = () => {
   const nextday = (index + 1) * msInDay + epochMs
 
   return {
-    solution: WORDS[index % WORDS.length].toUpperCase(),
+    solution: targetWords[index % targetWords.length].toUpperCase(),
     solutionIndex: index,
     tomorrow: nextday,
   }

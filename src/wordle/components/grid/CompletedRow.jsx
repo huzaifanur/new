@@ -1,14 +1,16 @@
 import { getGuessStatuses } from '../../lib/statuses'
 import { Cell } from './Cell'
 import { unicodeSplit } from '../../lib/words'
-
+import { GameContext } from '../../../context/gameState'
+import { useContext } from 'react'
 // type Props = {
 //   guess: string
 //   isRevealing?: boolean
 // }
 
 export const CompletedRow = ({ guess, isRevealing }) => {
-  const statuses = getGuessStatuses(guess)
+  const { solution } = useContext(GameContext)
+  const statuses = getGuessStatuses(guess, solution)
   const splitGuess = unicodeSplit(guess)
 
   return (
