@@ -9,17 +9,19 @@ import FooterAdmin from '../components/Footers/FooterAdmin.js'
 
 export default function Admin({ children }) {
   return (
-    <>
+    <div className="min-h-screen overflow-x-hidden">
       <Sidebar />
-      <div className="relative md:ml-64 bg-blueGray-100">
-        <AdminNavbar />
-        {/* Header */}
-        <HeaderStats />
-        <div className="px-4 md:px-10 mx-auto w-full -m-24">
-          {children}
+      <div className="flex flex-col min-h-screen">
+        <div className="relative md:ml-64 flex-grow bg-blueGray-100">
+          <AdminNavbar />
+          {/* Header */}
+          <HeaderStats />
+          <div className="  mx-auto w-full ">{children}</div>
+        </div>
+        <div className="z-50 relative left-28 ">
           <FooterAdmin />
         </div>
       </div>
-    </>
+    </div>
   )
 }
