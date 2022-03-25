@@ -12,14 +12,11 @@ export default function Login() {
 
   const handleforget = async () => {
     try {
-      const response = await axios.post(
-        'http://localhost:1337/api/auth/reset-password',
-        {
-          code: query.code,
-          password: 'password',
-          passwordConfirmation: 'password',
-        }
-      )
+      await axios.post('http://localhost:1337/api/auth/reset-password', {
+        code: query.code,
+        password: password,
+        passwordConfirmation: password,
+      })
       router.push('/')
     } catch (error) {
       console.log(error)
