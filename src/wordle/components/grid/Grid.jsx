@@ -1,4 +1,4 @@
-import Range from '../../../components/range/Range'
+import Range from '../../../components/Range/Range'
 import { MAX_CHALLENGES } from '../../constants/settings'
 import { CompletedRow } from './CompletedRow'
 import { CurrentRow } from './CurrentRow'
