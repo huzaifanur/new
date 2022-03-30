@@ -15,7 +15,6 @@ class MyDocument extends Document {
             sizes="76x76"
             href="/img/brand/apple-icon.png"
           />
-          <title>Word Games</title>
         </Head>
         <body className="text-blueGray-700 antialiased">
           <div id="page-transition"></div>

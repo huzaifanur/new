@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { AuthContext } from '../../context/authContext'
 import { useContext, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-
+import Image from 'next/image'
 // layout for page
 
 import Auth from '../../layouts/Auth'
@@ -33,17 +33,29 @@ export default function Login() {
                 </div>
                 <div className="btn-wrapper text-center">
                   <button
-                    className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
+                    className="bg-white active:bg-blueGray-50 text-blueGray-700  px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
                     type="button"
                   >
-                    <img alt="..." className="w-5 mr-1" src="/img/github.svg" />
+                    <Image
+                      height={15}
+                      width={15}
+                      alt="..."
+                      className="w-5 mr-2"
+                      src="/img/github.svg"
+                    />
                     Github
                   </button>
                   <button
-                    className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
+                    className="bg-white active:bg-blueGray-50 text-blueGray-700  px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
                     type="button"
                   >
-                    <img alt="..." className="w-5 mr-1" src="/img/google.svg" />
+                    <Image
+                      height={15}
+                      width={15}
+                      alt="..."
+                      className="w-5 mr-2"
+                      src="/img/google.svg"
+                    />
                     Google
                   </button>
                 </div>
