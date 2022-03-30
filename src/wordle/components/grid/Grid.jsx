@@ -1,9 +1,8 @@
-import Range from '../../../components/range'
+import Range from '../../../components/range/Range'
 import { MAX_CHALLENGES } from '../../constants/settings'
 import { CompletedRow } from './CompletedRow'
 import { CurrentRow } from './CurrentRow'
 import { EmptyRow } from './EmptyRow'
-import { useState } from 'react'
 
 // type Props = {
 //   guesses: string[]
